@@ -1,0 +1,137 @@
+[
+    {
+        "id": "bf4909b498328e56",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6cfbfa6359bb8f8c",
+        "type": "mqtt in",
+        "z": "bf4909b498328e56",
+        "name": "",
+        "topic": "home/sensor/tempC",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "1cd688c63862ecbc",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "d2abfac41bcc9a24"
+            ]
+        ]
+    },
+    {
+        "id": "d2abfac41bcc9a24",
+        "type": "function",
+        "z": "bf4909b498328e56",
+        "name": "function 1",
+        "func": "msg.payload = parseFloat(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 200,
+        "wires": [
+            [
+                "94aca358b135501f"
+            ]
+        ]
+    },
+    {
+        "id": "94aca358b135501f",
+        "type": "ui_gauge",
+        "z": "bf4909b498328e56",
+        "name": "",
+        "group": "6b3882d6e7a2fa43",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "units",
+        "format": "{{value}}℃",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 610,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "1cd688c63862ecbc",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "127.0.0.1",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "6b3882d6e7a2fa43",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "c202f8583ccc67d6",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c202f8583ccc67d6",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ca71e54f4bf12ecb",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
